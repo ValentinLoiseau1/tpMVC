@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<script src="static/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<h1>CLIENTS</h1>
+
+<div id="content">
+
+<?php 
+
+	include('vue/user/usr_data.php');
+
+?>
+
+</div>
+
+<br />
+
+<button id='update'>UPDATE</button>
+
+<br /><br />
+
+<div id="info"></div>
+
+<script>
+
+$(function(){
+
+	$("#update").on("click", function() {
+
+		$("#info").show();
+		$("#info").html("Traitement...");
+	
+		var data = {
+			<?= rtrim($JS_data, ',') ?>
+		};
+
+		$.ajax({
+			url:'?update',
+			type:'POST',
+			data: data,
+			error: function() {
+				alert('Erreur sur PHP !');
+			},
+			success: function(data) {
+				if (data === 'err') {
+					$('#content').html("Erreur de traitement !");
+				} else {
+					$('#content').html(data);
+					$("#info").html("Mise à jour OK !");
+					//alert(data);
+				}
+			},
+			complete: function() {
+				
+				setTimeout(function() { 
+					$("#info").hide();
+				}, 2000);
+				
+			}
+
+		});
+		
+	});
+
+})
+
+</script>
+</body>
+</html>
+	

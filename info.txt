@@ -1,0 +1,26 @@
+
+---------------------
+
+01-mvc-sans-objet.zip
+
+Exemple du MVC sans objet (juste des fonctions et global)
+CREATE + READ + UPDATE avec JQuery
+
+Installation :
+La base + table sont à inserer dans PHPmyAdmin avec le fichier :  clients_tbl.sql
+
+Le fichier connect.php est à compléter avec le mot de passe MySQL: 
+mvc/modele/connect.php
+
+---------------------
+
+02-mvc-avec-objet.zip
+
+Exemple avancé du MVC avec un seul objet de connexion PDO
+Tout est commenté. 
+
+Installation :
+Voir le fichier inclus : INFO.txt
+Base et table générées automatiquement. 
+
+---------------------
